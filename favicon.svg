@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="-60 -60 120 120">
+<!-- Written by desktop/scripts/render-icon.mjs (PLAN D80). Edit the script, not this file. -->
+<rect x="-60" y="-60" width="120" height="120" rx="28" fill="#0f766e"/>
+<circle r="33" fill="none" stroke="#ffffff" stroke-width="15" stroke-linecap="round" stroke-dasharray="143.35 64" transform="rotate(-90)"/>
+<circle r="13" fill="#ffffff" transform="rotate(-55.56) translate(0 -33)"/>
+</svg>
