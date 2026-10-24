@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Changelog: Praxis Chat</title>
+<meta name="description" content="Praxis Chat changelog: what shipped in each release, and what is being built next.">
+<link rel="canonical" href="https://overmindnetwork.com/changelog.html">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1a1918" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Praxis Chat">
+<meta property="og:title" content="Changelog: Praxis Chat">
+<meta property="og:description" content="Praxis Chat changelog: what shipped in each release, and what is being built next.">
+<meta property="og:url" content="https://overmindnetwork.com/changelog.html">
+<meta property="og:image" content="https://overmindnetwork.com/assets/icon.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Changelog: Praxis Chat">
+<meta name="twitter:description" content="Praxis Chat changelog: what shipped in each release, and what is being built next.">
+<meta name="twitter:image" content="https://overmindnetwork.com/assets/icon.png">
+
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Praxis Chat, home">
+      <svg viewBox="-60 -60 120 120" aria-hidden="true" focusable="false">
+        <rect x="-60" y="-60" width="120" height="120" rx="28" fill="#0f766e"/>
+        <circle class="orbit-ring" r="28" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" transform="rotate(-90)"/>
+        <g class="orbit-dot"><circle r="6.5" fill="#ffffff" transform="rotate(-37) translate(0 -28)"/></g>
+      </svg>
+      <span>Praxis Chat</span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="./#features">What it does</a>
+      <a href="./#agent">Agent</a>
+      <a href="./#privacy">Your data</a>
+      <a href="./#faq">Questions</a>
+      <a href="changelog.html" aria-current="page">Changelog</a>
+    </nav>
+    <a class="header-cta" href="./#install">Download</a>
+  </div>
+</header>
+
+<main id="main" class="page">
+  <div class="wrap">
+    <article class="prose changelog">
+      <h1>Changelog</h1>
+      <p class="first">What shipped in each release, newest first. The app updates itself, so you get each release when it comes out.</p>
+
+      <ol class="timeline">
+        <li class="release upcoming">
+          <div class="release-head">
+            <h2 id="v0-2-0">0.2.0</h2>
+            <span class="status">In progress</span>
+          </div>
+          <p class="release-lede">Knows your code. Planned work, which can still change before it ships.</p>
+          <h3>Large projects</h3>
+          <ul>
+            <li>Any folder can be your workspace, however big. Large ones index the most useful files first, and the agent can still read and search every file.</li>
+            <li>More build and dependency folders are skipped by default. Add a <code>.praxisignore</code> file to skip others.</li>
+          </ul>
+          <h3>Understands your codebase</h3>
+          <ul>
+            <li>An exact index of your functions, classes and methods, with their line ranges and where each one is used.</li>
+            <li>New agent tools to outline a file, open one function, list its callers and search code, so the agent reads far less and guesses less.</li>
+            <li>Notices edits you make in your own editor, and never edits a file it has not seen in its current state.</li>
+            <li>Works better with smaller models: the app gathers the relevant code before the model starts, edits whole functions, renames safely and maps error stack traces to code.</li>
+          </ul>
+          <h3>Feedback and usage</h3>
+          <ul>
+            <li>Thumbs up or down on replies.</li>
+            <li>Anonymous usage statistics, so we know which features help: counts and categories only, never your prompts, files, project names or keys. On by default with a clear notice on first start, and one click to turn off.</li>
+          </ul>
+          <h3>Fixes</h3>
+          <ul>
+            <li>Listing the files in a subfolder could report 0 files.</li>
+            <li>The first-start setup screen showed a second scrollbar.</li>
+          </ul>
+        </li>
+
+        <li class="release">
+          <div class="release-head">
+            <h2 id="v0-1-0">0.1.0</h2>
+            <time datetime="2026-10-23">23 October 2026</time>
+          </div>
+          <p class="release-lede">First public beta.</p>
+          <h3>Install and updates</h3>
+          <ul>
+            <li>One Windows installer with everything inside. No Python or Node.js to install.</li>
+            <li>Updates itself from GitHub, and copies your database to a backup before a new version opens it.</li>
+          </ul>
+          <h3>Your own models</h3>
+          <ul>
+            <li>Connect OpenAI, Anthropic, Google (Gemini API key or Google Cloud), DeepSeek, Moonshot, Zhipu, MiniMax, xAI, Mistral, Groq, OpenRouter, Together, Fireworks, or any OpenAI-compatible server, with your own account.</li>
+          </ul>
+          <h3>Projects</h3>
+          <ul>
+            <li>Add a folder or upload files, including PDF and Word documents.</li>
+            <li>A project map of folders, main files and their symbols.</li>
+            <li>Optional semantic search once you pick an embedding model.</li>
+          </ul>
+          <h3>An agent that does the work</h3>
+          <ul>
+            <li>Praxis Harness, the default engine: helper agents, goals, plan mode, workflows, worktrees, code navigation for TypeScript and Python, and terminals.</li>
+            <li>Telos <span class="chip">Beta</span>, Praxis's own engine: reads, searches, writes and edits files, and runs PowerShell commands, including long ones as background jobs.</li>
+            <li>You stay in charge: Approve, Auto and Bypass modes, your own allow, ask and deny rules, hard limits no rule can lift, and undo for every edit.</li>
+            <li>A worklog of each task's plan, steps, decisions and results.</li>
+          </ul>
+          <h3>Long chats</h3>
+          <ul>
+            <li>A context meter, and automatic compaction at 80% into a detailed summary that survives a restart. <code>/compact</code> runs it by hand.</li>
+          </ul>
+          <h3>Privacy</h3>
+          <ul>
+            <li>Chats, projects, files and settings stay on your PC. Prompts go only to the provider you connect.</li>
+            <li>API keys are kept in Windows Credential Manager. No telemetry, no analytics, no account.</li>
+          </ul>
+          <h3>Look and feel</h3>
+          <ul>
+            <li>The Orbit logo, with a comet that circles while the model thinks and a closing ring when a reply is done. Light and dark themes.</li>
+          </ul>
+        </li>
+      </ol>
+
+      <p class="more">Every installer and its SHA-256 is on <a href="https://github.com/shanmukhram/praxis-chat-releases/releases">GitHub Releases</a>. Suggestions and bug reports: <a href="https://github.com/shanmukhram/praxis-chat-releases/issues">open an issue</a>.</p>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="brand" href="./">
+        <svg viewBox="-60 -60 120 120" aria-hidden="true" focusable="false">
+          <rect x="-60" y="-60" width="120" height="120" rx="28" fill="#0f766e"/>
+          <circle r="28" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-dasharray="140 36" transform="rotate(-90)"/>
+          <circle r="6.5" fill="#ffffff" transform="rotate(-37) translate(0 -28)"/>
+        </svg>
+        <span>Praxis Chat</span>
+      </a>
+      <ul class="footer-links" aria-label="Site links">
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="license.html">License</a></li>
+        <li><a href="changelog.html">Changelog</a></li>
+        <li><a href="https://github.com/shanmukhram/praxis-chat-releases/releases">Releases (GitHub)</a></li>
+        <li><a href="https://github.com/shanmukhram/praxis-chat-releases/issues">Feedback</a></li>
+      </ul>
+    </div>
+    <p class="credits">Praxis Harness builds on the open-source <a href="https://github.com/deepseek-ai/deepseek-harness">DeepSeek Harness</a> (MIT license), extended and wired into Praxis. Telos's design is inspired by Claude Code. Praxis Chat is an independent project, not affiliated with DeepSeek or Anthropic.</p>
+    <p class="copyright">© 2026 Overmind Labs Private Limited</p>
+  </div>
+</footer>
+</body>
+</html>
