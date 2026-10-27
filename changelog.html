@@ -56,12 +56,12 @@
       <p class="first">What shipped in each release, newest first. The app updates itself, so you get each release when it comes out.</p>
 
       <ol class="timeline">
-        <li class="release upcoming">
+        <li class="release">
           <div class="release-head">
             <h2 id="v0-2-0">0.2.0</h2>
-            <span class="status">In progress</span>
+            <time datetime="2026-10-28">28 October 2026</time>
           </div>
-          <p class="release-lede">Knows your code. Planned work, which can still change before it ships.</p>
+          <p class="release-lede">Knows your code, and checks its own work.</p>
           <h3>Large projects</h3>
           <ul>
             <li>Any folder can be your workspace, however big. Large ones index the most useful files first, and the agent can still read and search every file.</li>
@@ -69,20 +69,29 @@
           </ul>
           <h3>Understands your codebase</h3>
           <ul>
-            <li>An exact index of your functions, classes and methods, with their line ranges and where each one is used.</li>
+            <li>An exact index of your functions, classes and methods in Python, TypeScript and JavaScript, with their line ranges and where each one is used. Built on your PC.</li>
             <li>New agent tools to outline a file, open one function, list its callers and search code, so the agent reads far less and guesses less.</li>
-            <li>Notices edits you make in your own editor, and never edits a file it has not seen in its current state.</li>
-            <li>Works better with smaller models: the app gathers the relevant code before the model starts, edits whole functions, renames safely and maps error stack traces to code.</li>
+            <li>Renames a function or class across the whole project in one approved change, with one undo. Uses it is not sure of are listed, never changed.</li>
+            <li>Notices files you change, between messages and while it works, and never edits a file it has not seen in its current state.</li>
           </ul>
-          <h3>Feedback and usage</h3>
+          <h3>Checks its own work</h3>
           <ul>
-            <li>Thumbs up or down on replies.</li>
-            <li>Anonymous usage statistics, so we know which features help: counts and categories only, never your prompts, files, project names or keys. On by default with a clear notice on first start, and one click to turn off.</li>
+            <li>Function names and <code>file:line</code> references in an answer are checked against the index before you see it. Claims like "the tests pass" are checked against what actually ran.</li>
+            <li>Runs the tests it names with your project's own command, and counts "0 tests ran" as a failure.</li>
+            <li>A type check after each edit, listing only the problems that edit added.</li>
+          </ul>
+          <h3>Better with smaller models</h3>
+          <ul>
+            <li>The app gathers the relevant code before the model starts, including code named in an error's stack trace.</li>
+            <li>On our benchmark with DeepSeek V4.1 Flash, agent tasks pass more often (97%, up from 84%) with about a third of the input tokens.</li>
+            <li>Long chats keep the exact code facts they found when they are summarised.</li>
           </ul>
           <h3>Fixes</h3>
           <ul>
             <li>Listing the files in a subfolder could report 0 files.</li>
             <li>The first-start setup screen showed a second scrollbar.</li>
+            <li>Several chats running at once could hold the database too long.</li>
+            <li>The agent engine now runs as <code>praxis-engine.exe</code>, so tools that stop every Node process no longer stop it.</li>
           </ul>
         </li>
 
