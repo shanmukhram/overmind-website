@@ -46,6 +46,7 @@
     </a>
     <nav class="nav" aria-label="Sections">
       <a href="#features">What it does</a>
+      <a href="#results">Results</a>
       <a href="#agent">Agent</a>
       <a href="#privacy">Your data</a>
       <a href="#faq">Questions</a>
@@ -133,6 +134,59 @@
           <dd>A context meter shows how full the conversation is. It compacts itself at 80%, keeping the details that matter.</dd>
         </div>
       </dl>
+    </div>
+  </section>
+
+  <section class="section" id="results" aria-labelledby="results-title">
+    <div class="wrap">
+      <div class="section-grid">
+        <div class="section-title">
+          <h2 id="results-title">Measured, not guessed</h2>
+        </div>
+        <p class="section-lead">Praxis gives the model exact facts about your code instead of whole files, and checks its work. That lets a cheap model do work you would expect from an expensive one. Every figure here comes from a benchmark run.</p>
+      </div>
+      <div class="pair">
+        <figure>
+          <div class="shot">
+            <picture>
+              <source type="image/webp" srcset="assets/media/swe-bench-77-80.webp">
+              <img src="assets/media/swe-bench-77-80.png" width="1270" height="760" loading="lazy" decoding="async"
+                   alt="Two grids of 100 dots. Claude Haiku 5.5 with Praxis resolved 77 of 100 SWE-bench Verified tasks, Claude Sonnet 5.5 resolved 80. Beside each, a circle sized to the cost of the run: Haiku's is about one-eleventh of Sonnet's.">
+            </picture>
+          </div>
+          <figcaption>SWE-bench Verified, 100 tasks, graded by the official harness: Claude Haiku 5.5 came within 3 tasks of Sonnet 5.5, for about one-eleventh the cost.</figcaption>
+        </figure>
+        <figure>
+          <div class="shot">
+            <picture>
+              <source type="image/webp" srcset="assets/media/tokens-68-less.webp">
+              <img src="assets/media/tokens-68-less.png" width="1270" height="760" loading="lazy" decoding="async"
+                   alt="370 dots, one per 1,000 input tokens. 118 are filled: input per passed task fell from 370,360 to 117,734 tokens.">
+            </picture>
+          </div>
+          <figcaption>On our own bench with DeepSeek V4.1 Flash: 68% less input per passed task, while passed tasks rose from 84% to 97%.</figcaption>
+        </figure>
+        <figure>
+          <div class="shot">
+            <picture>
+              <source type="image/webp" srcset="assets/media/code-map.webp">
+              <img src="assets/media/code-map.png" width="1270" height="760" loading="lazy" decoding="async"
+                   alt="The 632 definitions in the click project around a ring, with lines for the calls between them. Context.invoke and its callers are highlighted.">
+            </picture>
+          </div>
+          <figcaption>The code map: every function and class in your project, its exact lines and its callers, built on your PC.</figcaption>
+        </figure>
+        <figure>
+          <div class="shot">
+            <picture>
+              <source type="image/webp" srcset="assets/media/checked-names.webp">
+              <img src="assets/media/checked-names.png" width="1270" height="760" loading="lazy" decoding="async"
+                   alt="A list of function names. The model's test_file_atomic is struck out and replaced by the real name, test_file_atomics, at tests/test_arguments.py line 138.">
+            </picture>
+          </div>
+          <figcaption>Function names and file:line citations are checked against your code before you see the answer. A wrong one goes back to the model to fix.</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
