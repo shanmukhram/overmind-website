@@ -46,9 +46,8 @@
     </a>
     <nav class="nav" aria-label="Sections">
       <a href="#features">What it does</a>
-      <a href="#results">Results</a>
-      <a href="#agent">Agent</a>
       <a href="#privacy">Your data</a>
+      <a href="#results">Results</a>
       <a href="#faq">Questions</a>
       <a href="changelog.html">Changelog</a>
     </nav>
@@ -58,276 +57,251 @@
 
 <main id="main">
   <section class="hero" aria-labelledby="hero-title">
-    <div class="wrap">
-      <h1 id="hero-title"><span>A private AI workspace for Windows.</span> <span>Your models, your files, your PC.</span></h1>
-      <p class="intro">Chat with the models you choose, work with your project files, and hand real work to an agent. Every change can wait for your approval.</p>
-
-      <div class="download">
-        <a class="button" data-download href="https://github.com/shanmukhram/praxis-chat-releases/releases/latest/download/Praxis-Chat-Setup.exe">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 3v10M5.5 8.5 10 13l4.5-4.5M4 16.5h12"/></svg>
-          Download for Windows
-        </a>
-        <p class="download-meta">Free · Windows 10 and 11 · 64-bit · Updates itself</p>
-        <div class="notice-region" role="status" aria-live="polite"></div>
-        <div class="notice notice-static">
-          <p>Windows may show a SmartScreen warning because our code-signing certificate is still being issued.</p>
-          <p>Click <span class="chip">More info</span> <span aria-hidden="true">→</span><span class="sr-only">then</span> <span class="chip">Run anyway</span>. <span data-signed-builds>Signed builds ship soon.</span></p>
-        </div>
-
-        <div class="checksum">
-          <!-- RELEASE: update the version and the SHA-256 together at each release. -->
-          <p class="checksum-label">SHA-256 of Praxis-Chat-Setup.exe, version 0.2.2 beta</p>
-          <div class="code-row">
-            <code id="sha256" class="hash">a9c92e26d2c31db13d63b1a247eabc7618b86008bd14a6f7eef58cd5209560f6</code>
-            <button class="copy" type="button" data-copy="sha256" data-copied-message="SHA-256 copied" aria-label="Copy SHA-256" hidden>Copy</button>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1 id="hero-title">A private AI workspace for Windows.</h1>
+        <p class="statement">Your models, your files, your PC.</p>
+        <p class="intro">Chat with the models you choose, work with your project files, and hand real work to an agent. Every change can wait for your approval.</p>
+        <div class="download">
+          <a class="button" data-download href="https://github.com/shanmukhram/praxis-chat-releases/releases/latest/download/Praxis-Chat-Setup.exe">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 3v10M5.5 8.5 10 13l4.5-4.5M4 16.5h12"/></svg>
+            Download for Windows
+          </a>
+          <p class="download-meta">Free · Windows 10 and 11 · 64-bit · Updates itself · <a href="#install">Check the download</a></p>
+          <div class="notice-region" role="status" aria-live="polite"></div>
+          <div class="notice notice-static">
+            <p>Windows may show a SmartScreen warning because our code-signing certificate is still being issued.</p>
+            <p>Click <span class="chip">More info</span> <span aria-hidden="true">→</span><span class="sr-only">then</span> <span class="chip">Run anyway</span>. <span data-signed-builds>Signed builds ship soon.</span></p>
           </div>
-          <!-- END RELEASE -->
-          <p class="checksum-label">Check the file in PowerShell:</p>
-          <div class="code-row">
-            <code id="verify-cmd"><span class="nw">Get-FileHash</span> <span class="nw">.\Praxis-Chat-Setup.exe</span> <span class="nw">-Algorithm</span> SHA256</code>
-            <button class="copy" type="button" data-copy="verify-cmd" data-copied-message="Command copied" aria-label="Copy command" hidden>Copy</button>
-          </div>
-          <p class="checksum-note">The hash it prints should match the one above. <a href="https://github.com/shanmukhram/praxis-chat-releases/releases">All versions and checksums</a></p>
-          <p class="sr-only" role="status" data-copy-status></p>
         </div>
       </div>
 
-      <figure class="hero-shot">
-        <div class="shot">
-          <picture>
-            <source media="(prefers-color-scheme: dark)" type="image/webp" srcset="assets/screenshots/agent-dark-1600.webp">
-            <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/agent-dark.png">
-            <source type="image/webp" srcset="assets/screenshots/agent-light-1600.webp">
-            <img src="assets/screenshots/agent-light.png" width="1600" height="1000" fetchpriority="high" decoding="async"
-                 alt="Praxis Chat after the agent finished a task. The tests passed, the changed files are shown as cards, and all to-dos are done.">
-          </picture>
+      <figure class="hero-demo">
+        <svg class="hero-orbit" viewBox="-60 -60 120 120" aria-hidden="true" focusable="false">
+          <circle class="hero-orbit-ring" r="44" fill="none" stroke-width="7" stroke-linecap="round" transform="rotate(-90)"/>
+          <g class="hero-orbit-dot"><circle r="6" transform="rotate(-37) translate(0 -44)"/></g>
+        </svg>
+        <div class="app" data-ui data-demo>
+          <div class="app-bar">
+            <span class="app-title">
+              <svg viewBox="-60 -60 120 120" aria-hidden="true" focusable="false"><rect x="-60" y="-60" width="120" height="120" rx="28" fill="#0f766e"/><circle r="28" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-dasharray="140 36" transform="rotate(-90)"/></svg>
+              Invoices
+            </span>
+            <span class="app-pill">Edits: Approve</span>
+            <span class="app-controls" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.2"><path d="M2 7h10"/></svg><svg viewBox="0 0 14 14" fill="none" stroke-width="1.2"><rect x="2.5" y="2.5" width="9" height="9" rx="1"/></svg><svg viewBox="0 0 14 14" fill="none" stroke-width="1.2"><path d="M3 3l8 8M11 3l-8 8"/></svg></span>
+          </div>
+          <div class="app-body">
+            <p class="msg msg-user">Make a folder for each month in Invoices and move the PDFs into the right one.</p>
+            <ul class="msg steps-log" aria-label="What the agent did">
+              <li class="done">Read the folder: 37 PDF files</li>
+              <li class="done">Wrote a plan: 12 folders, 37 moves</li>
+            </ul>
+            <div class="msg approval" data-state="waiting">
+              <p class="approval-head"><span class="wait-dot" aria-hidden="true"></span><span data-demo-title>Waiting for your approval</span></p>
+              <p class="approval-body" data-demo-body>Run a PowerShell command in Invoices: create 12 folders and move 37 files.</p>
+              <div class="approval-actions">
+                <button type="button" class="demo-btn" data-demo-action="reject">Reject</button>
+                <button type="button" class="demo-btn demo-approve" data-demo-action="approve">Approve</button>
+              </div>
+              <button type="button" class="demo-again" data-demo-action="reset" hidden>Try again</button>
+            </div>
+          </div>
+          <p class="sr-only" role="status" data-demo-status></p>
         </div>
-        <figcaption>The agent finished a task: tests passed, changed files handed over as cards, all to-dos done.</figcaption>
+        <figcaption>An example task. Approve or reject the agent's change.</figcaption>
       </figure>
     </div>
   </section>
 
+  <section class="models" aria-labelledby="models-title">
+    <div class="wrap">
+      <h2 id="models-title" class="models-title">Chat with the models you choose</h2>
+      <p class="model-names">
+        <span>OpenAI</span> <span>Anthropic</span> <span>Google</span> <span>DeepSeek</span> <span>Moonshot</span> <span>Zhipu</span> <span>MiniMax</span> <span>xAI</span> <span>Mistral</span> <span>Groq</span> <span>OpenRouter</span> <span>Together</span> <span>Fireworks</span>
+      </p>
+      <p class="models-note">or any OpenAI-compatible server, with your own account.</p>
+    </div>
+  </section>
+
   <section class="section" id="features" aria-labelledby="features-title">
-    <div class="wrap section-grid">
-      <div class="section-title">
-        <h2 id="features-title">What it does</h2>
-      </div>
-      <dl class="rows">
-        <div class="row">
-          <dt>Chat with the models you choose</dt>
-          <dd>OpenAI, Anthropic, Google, DeepSeek, Moonshot, Zhipu, MiniMax, xAI, Mistral, Groq, OpenRouter, Together, Fireworks, or any OpenAI-compatible server, with your own account.</dd>
-        </div>
-        <div class="row">
-          <dt>Work with your projects</dt>
-          <dd>Add a folder or upload files. The app indexes them so answers cite the right file.</dd>
-        </div>
-        <div class="row">
-          <dt>An agent that does the work</dt>
-          <dd>It reads, searches, edits files and runs PowerShell commands in a folder you pick. Every change can wait for your approval, and edits can be undone.</dd>
-        </div>
-        <div class="row">
-          <dt>A worklog you can follow</dt>
-          <dd>Each step the agent takes shows as a clear row you can open. Plans, decisions and results are kept per project.</dd>
-        </div>
-        <div class="row">
-          <dt>Long chats stay usable</dt>
-          <dd>A context meter shows how full the conversation is. It compacts itself at 80%, keeping the details that matter.</dd>
-        </div>
-      </dl>
-    </div>
-  </section>
-
-  <section class="section" id="results" aria-labelledby="results-title">
     <div class="wrap">
-      <div class="section-grid">
-        <div class="section-title">
-          <h2 id="results-title">Measured, not guessed</h2>
+      <h2 id="features-title">What it does</h2>
+
+      <div class="use">
+        <div class="use-copy">
+          <h3>Work with your projects</h3>
+          <p>Add a folder or upload files, including PDF and Word documents. The app indexes them so answers cite the right file.</p>
         </div>
-        <p class="section-lead">Praxis gives the model exact facts about your code instead of whole files, and checks its work. That lets a cheap model do work you would expect from an expensive one. Every figure here comes from a benchmark run.</p>
+        <div class="frag" data-ui aria-hidden="true">
+          <p class="msg msg-user">When does the lease end, and how much notice do we need to give?</p>
+          <ul class="steps-log steps-plain"><li class="done">Searched the project: 2 files match</li></ul>
+          <div class="frag-answer">
+            <p>The lease ends on 31 March 2027. Either side gives two months' notice in writing.</p>
+            <p class="cites"><span class="file-chip">lease-2026.pdf</span><span class="file-chip">addendum.docx</span></p>
+          </div>
+        </div>
       </div>
-      <div class="pair">
-        <figure>
-          <div class="shot">
-            <picture>
-              <source type="image/webp" srcset="assets/media/swe-bench-77-80.webp">
-              <img src="assets/media/swe-bench-77-80.png" width="1270" height="760" loading="lazy" decoding="async"
-                   alt="Two grids of 100 dots. Claude Haiku 5.5 with Praxis resolved 77 of 100 SWE-bench Verified tasks, Claude Sonnet 5.5 resolved 80. Beside each, a circle sized to the cost of the run: Haiku's is about one-eleventh of Sonnet's.">
-            </picture>
+
+      <div class="use use-flip">
+        <div class="use-copy">
+          <h3>An agent that does the work</h3>
+          <p>It reads, searches, edits files and runs PowerShell commands in a folder you pick. Every change can wait for your approval, and edits can be undone.</p>
+          <h3 class="use-sub">A worklog you can follow</h3>
+          <p>Each step the agent takes shows as a clear row you can open. Plans, decisions and results are kept per project.</p>
+        </div>
+        <div class="frag" data-ui aria-hidden="true">
+          <ul class="steps-log">
+            <li class="done">Read 3 files</li>
+            <li class="done">Wrote a plan: 4 steps</li>
+            <li class="done">Edited store.py: added remove()</li>
+            <li class="done">Ran the tests: 12 passed</li>
+            <li class="active">Writing the summary</li>
+          </ul>
+          <div class="file-cards">
+            <span class="file-card"><b>store.py</b>Added remove() function</span>
+            <span class="file-card"><b>test_store.py</b>Added test_remove() unit test</span>
           </div>
-          <figcaption>SWE-bench Verified, 100 tasks, graded by the official harness: Claude Haiku 5.5 came within 3 tasks of Sonnet 5.5, for about one-eleventh the cost.</figcaption>
-        </figure>
-        <figure>
-          <div class="shot">
-            <picture>
-              <source type="image/webp" srcset="assets/media/tokens-68-less.webp">
-              <img src="assets/media/tokens-68-less.png" width="1270" height="760" loading="lazy" decoding="async"
-                   alt="370 dots, one per 1,000 input tokens. 118 are filled: input per passed task fell from 370,360 to 117,734 tokens.">
-            </picture>
-          </div>
-          <figcaption>On our own bench with DeepSeek V4.1 Flash: 68% less input per passed task, while passed tasks rose from 84% to 97%.</figcaption>
-        </figure>
-        <figure>
-          <div class="shot">
-            <picture>
-              <source type="image/webp" srcset="assets/media/code-map.webp">
-              <img src="assets/media/code-map.png" width="1270" height="760" loading="lazy" decoding="async"
-                   alt="The 632 definitions in the click project around a ring, with lines for the calls between them. Context.invoke and its callers are highlighted.">
-            </picture>
-          </div>
-          <figcaption>The code map: every function and class in your project, its exact lines and its callers, built on your PC.</figcaption>
-        </figure>
-        <figure>
-          <div class="shot">
-            <picture>
-              <source type="image/webp" srcset="assets/media/checked-names.webp">
-              <img src="assets/media/checked-names.png" width="1270" height="760" loading="lazy" decoding="async"
-                   alt="A list of function names. The model's test_file_atomic is struck out and replaced by the real name, test_file_atomics, at tests/test_arguments.py line 138.">
-            </picture>
-          </div>
-          <figcaption>Function names and file:line citations are checked against your code before you see the answer. A wrong one goes back to the model to fix.</figcaption>
-        </figure>
+        </div>
+      </div>
+
+      <div class="use">
+        <div class="use-copy">
+          <h3>Knows your code, and checks its own work</h3>
+          <p>Function names and file:line citations are checked against your code before you see the answer. A wrong one goes back to the model to fix.</p>
+          <h3 class="use-sub">Long chats stay usable</h3>
+          <p>A context meter shows how full the conversation is. It compacts itself at 80%, keeping the details that matter.</p>
+        </div>
+        <div class="frag frag-code" data-ui aria-hidden="true">
+          <p class="check-row"><s>test_file_atomic</s></p>
+          <p class="check-row check-fixed"><code>test_file_atomics</code> <span>tests/test_arguments.py:138</span></p>
+          <div class="meter"><div class="meter-fill"></div></div>
+          <div class="meter-legend"><span>Context</span><span>80%</span></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="agent" aria-labelledby="agent-title">
-    <div class="wrap section-grid">
-      <div class="section-title">
-        <h2 id="agent-title">How the agent works</h2>
+  <section class="section control" id="agent" aria-labelledby="control-title">
+    <div class="wrap control-grid">
+      <div>
+        <h2 id="control-title">You stay in charge</h2>
+        <p class="lead">Every change and command follows the chat's edit mode.</p>
+        <p class="limits"><strong>Hard limits no rule can lift.</strong> The agent stays inside the folder you chose, never touches secret files or the <code>.git</code> folder, writes a plan before it changes anything, and you can undo every edit.</p>
       </div>
       <div>
-        <p class="section-lead">Praxis Chat has two agent engines. You pick one per chat, and both run on whichever model provider you connect.</p>
+        <div class="mode-demo">
+          <fieldset class="mode-pick">
+            <legend>Edit mode</legend>
+            <label><input type="radio" name="edit-mode" id="mode-approve" value="approve" checked><span class="mode-name">Approve</span><span class="mode-desc">Everything waits for you.</span></label>
+            <label><input type="radio" name="edit-mode" id="mode-auto" value="auto"><span class="mode-name">Auto</span><span class="mode-desc">Safe commands run, the rest waits.</span></label>
+            <label><input type="radio" name="edit-mode" id="mode-bypass" value="bypass"><span class="mode-name">Bypass</span><span class="mode-desc">Everything runs.</span></label>
+          </fieldset>
+          <table class="mode-table">
+            <caption class="sr-only">What happens to three example actions in the chosen edit mode</caption>
+            <thead>
+              <tr><th scope="col">The agent wants to</th><th scope="col">What happens</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Run <code>git status</code></td>
+                <td><span class="waits" data-in="approve">Waits for you</span><span class="runs" data-in="auto bypass">Runs</span></td>
+              </tr>
+              <tr>
+                <td>Run <code>npm install</code></td>
+                <td><span class="waits" data-in="approve auto">Waits for you</span><span class="runs" data-in="bypass">Runs</span></td>
+              </tr>
+              <tr>
+                <td>Change a file in the <code>.git</code> folder</td>
+                <td><span class="never" data-in="approve auto bypass">Never, in any mode</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="sr-only" role="status" data-mode-status></p>
+        </div>
+        <p class="note">Rules you write add to that, for example "always allow <code>git status</code>" or "never read <code>*.env</code>".</p>
+      </div>
+    </div>
+  </section>
 
+  <section class="field" id="privacy" aria-labelledby="privacy-title">
+    <div class="wrap">
+      <h2 class="privacy-title" id="privacy-title"><span>Your data stays</span> <span>on your PC</span></h2>
+      <p class="privacy-lead">Chats, projects, files and settings are stored locally. Prompts go only to the provider you connect, for the chats that use it.</p>
+      <ul class="facts">
+        <li>No account with us. Anonymous usage counts only, never your content, and off with one click.</li>
+        <li>API keys are kept in Windows Credential Manager, never in plain files.</li>
+        <li>The only other requests the app makes are a check on GitHub for new versions, those anonymous counts, and downloads of developer tools an agent task needs.</li>
+      </ul>
+      <p class="privacy-more"><a href="privacy.html">Read the privacy note</a></p>
+    </div>
+  </section>
+
+  <section class="results" id="results" aria-labelledby="results-title">
+    <div class="wrap">
+      <div class="split-head">
+        <h2 class="head" id="results-title">Measured, not guessed</h2>
+        <p class="lead">Praxis gives the model exact facts about your code instead of whole files, and checks its work. That lets a cheap model do work you would expect from an expensive one. Every figure here comes from a benchmark run.</p>
+      </div>
+
+      <div class="figures">
+        <div class="figure" data-figure>
+          <p class="figure-num"><span data-count="77">77</span><span class="figure-unit">/100</span></p>
+          <p class="figure-text">SWE-bench Verified tasks resolved by Claude Haiku 5.5 with Praxis: within 3 tasks of Claude Sonnet 5.5, for about one-eleventh the cost.</p>
+          <p class="figure-note">Same 100 tasks for both, graded by the official harness (swebench 5.0.2), 2026-10-28.</p>
+        </div>
+        <div class="figure" data-figure>
+          <p class="figure-num"><span data-count="68">68</span><span class="figure-unit">%</span></p>
+          <p class="figure-text">less input per passed task on our own bench with DeepSeek V4.1 Flash: from 370,360 to 117,734 tokens.</p>
+        </div>
+        <div class="figure" data-figure>
+          <p class="figure-num"><span data-count="97">97</span><span class="figure-unit">%</span></p>
+          <p class="figure-text">of agent tasks passed on the same bench, up from 84%, with about a third of the input tokens.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="engines" aria-labelledby="engines-title">
+    <div class="wrap">
+      <div class="split-head">
+        <h2 id="engines-title">How the agent works</h2>
+        <p class="lead">Praxis Chat has two agent engines. You pick one per chat, and both run on whichever model provider you connect.</p>
+      </div>
+      <div class="engines">
         <article class="engine" aria-labelledby="telos-title">
-          <div class="engine-head">
-            <h3 id="telos-title">Telos</h3>
-            <span class="tag">Beta</span>
-          </div>
-          <p>Praxis's own agent engine, built into the app.</p>
+          <h3 id="telos-title">Telos <span class="tag">Beta</span></h3>
+          <p class="engine-lede">Praxis's own agent engine, built into the app.</p>
           <dl class="rows">
-            <div class="row">
-              <dt>Real tools on your files</dt>
-              <dd>Read, search (glob and grep), write and edit files, and run Windows PowerShell commands, including long ones as background jobs you can check on and stop.</dd>
-            </div>
-            <div class="row">
-              <dt>You stay in charge</dt>
-              <dd>
-                Every change and command follows the chat's edit mode.
-                <dl class="modes">
-                  <div class="mode"><dt>Approve</dt><dd>Everything waits for you.</dd></div>
-                  <div class="mode"><dt>Auto</dt><dd>Safe commands run, the rest waits.</dd></div>
-                  <div class="mode"><dt>Bypass</dt><dd>Everything runs.</dd></div>
-                </dl>
-                <p class="note">Rules you write add to that, for example "always allow <code>git status</code>" or "never read <code>*.env</code>".</p>
-              </dd>
-            </div>
-            <div class="row">
-              <dt>Hard limits no rule can lift</dt>
-              <dd>The agent stays inside the folder you chose, never touches secret files or the <code>.git</code> folder, writes a plan before it changes anything, and you can undo every edit.</dd>
-            </div>
-            <div class="row">
-              <dt>Steady on long tasks</dt>
-              <dd>Reads run side by side to save time. Guards stop a model that keeps repeating the same call.</dd>
-            </div>
+            <div class="row"><dt>Real tools on your files</dt><dd>Read, search (glob and grep), write and edit files, and run Windows PowerShell commands, including long ones as background jobs you can check on and stop.</dd></div>
+            <div class="row"><dt>Steady on long tasks</dt><dd>Reads run side by side to save time. Guards stop a model that keeps repeating the same call.</dd></div>
+            <div class="row"><dt>Context that holds up</dt><dd>The context meter shows how much of the model's window a chat uses. At 80% the chat compacts itself into a detailed summary: the goal, the work done, open hypotheses and the current step. The summary is kept, so a long task carries on after a restart.</dd></div>
           </dl>
         </article>
-
         <article class="engine" aria-labelledby="harness-title">
-          <div class="engine-head">
-            <h3 id="harness-title">Praxis Harness</h3>
-          </div>
-          <p>The full-featured engine for long, many-step work. Every model call goes through your own providers, and Praxis's approvals and rules sit in front of every tool it uses.</p>
+          <h3 id="harness-title">Praxis Harness</h3>
+          <p class="engine-lede">The full-featured engine for long, many-step work. Every model call goes through your own providers, and Praxis's approvals and rules sit in front of every tool it uses.</p>
           <dl class="rows">
-            <div class="row">
-              <dt>Helpers</dt>
-              <dd>The agent hands side work, such as a wide search or a review, to helper agents running alongside it.</dd>
-            </div>
-            <div class="row">
-              <dt>Goals</dt>
-              <dd>The agent keeps working round after round until a goal you set is met.</dd>
-            </div>
-            <div class="row">
-              <dt>Plan mode</dt>
-              <dd>The agent plans with read-only tools and changes nothing until you approve the plan.</dd>
-            </div>
-            <div class="row">
-              <dt>Workflows, worktrees, code navigation and terminals</dt>
-              <dd>Some are switched on in Settings.</dd>
-            </div>
+            <div class="row"><dt>Helpers</dt><dd>The agent hands side work, such as a wide search or a review, to helper agents running alongside it.</dd></div>
+            <div class="row"><dt>Goals</dt><dd>The agent keeps working round after round until a goal you set is met.</dd></div>
+            <div class="row"><dt>Plan mode</dt><dd>The agent plans with read-only tools and changes nothing until you approve the plan.</dd></div>
+            <div class="row"><dt>Workflows, worktrees, code navigation and terminals</dt><dd>Some are switched on in Settings.</dd></div>
           </dl>
         </article>
-
-        <article class="engine" aria-labelledby="context-title">
-          <div class="engine-head">
-            <h3 id="context-title">Context that holds up</h3>
-          </div>
-          <p>The context meter shows how much of the model's window a chat uses. At 80% the chat compacts itself into a detailed summary: the goal, the work done, open hypotheses and the current step. The summary is kept, so a long task carries on after a restart.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section band" id="privacy" aria-labelledby="privacy-title">
-    <div class="wrap section-grid">
-      <div class="section-title">
-        <h2 id="privacy-title">Your data stays on your PC</h2>
-      </div>
-      <div>
-        <p class="privacy-statement">Chats, projects, files and settings are stored locally. Prompts go only to the provider you connect, for the chats that use it.</p>
-        <ul class="ticks">
-          <li>No account with us. Anonymous usage counts only, never your content, and off with one click.</li>
-          <li>API keys are kept in Windows Credential Manager, never in plain files.</li>
-          <li>The only other requests the app makes are a check on GitHub for new versions, those anonymous counts, and downloads of developer tools an agent task needs.</li>
-        </ul>
-        <p><a href="privacy.html">Read the privacy note</a></p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="screens" aria-labelledby="screens-title">
-    <div class="wrap">
-      <div class="section-grid">
-        <div class="section-title">
-          <h2 id="screens-title">See it work</h2>
-        </div>
-        <p class="section-lead">The agent reads the project and writes a plan, then waits before its first edit. On first start you connect a model provider with your own account.</p>
-      </div>
-      <div class="pair">
-        <figure>
-          <div class="shot">
-            <picture>
-              <source type="image/webp" srcset="assets/screenshots/approval-crop-1200.webp">
-              <img src="assets/screenshots/approval-crop.png" width="1200" height="900" loading="lazy" decoding="async"
-                   alt="The agent read three project files, wrote a plan, and shows an edit to store.py waiting for approval, with Reject and Approve buttons.">
-            </picture>
-          </div>
-          <figcaption>Every change waits for you in Approve mode.</figcaption>
-        </figure>
-        <figure>
-          <div class="shot">
-            <picture>
-              <source type="image/webp" srcset="assets/screenshots/setup-crop-1200.webp">
-              <img src="assets/screenshots/setup-crop.png" width="1200" height="900" loading="lazy" decoding="async"
-                   alt="The first-start screen: connect your first model provider, with a list of providers such as OpenAI, Anthropic, Google Gemini and DeepSeek.">
-            </picture>
-          </div>
-          <figcaption>First start: connect your own provider.</figcaption>
-        </figure>
       </div>
     </div>
   </section>
 
   <section class="section" id="install" aria-labelledby="install-title">
-    <div class="wrap section-grid">
-      <div class="section-title">
-        <h2 id="install-title">Install</h2>
-      </div>
+    <div class="wrap install">
       <div>
+        <h2 id="install-title">Install</h2>
         <ol class="steps">
-          <li>Download the installer, <code>Praxis-Chat-Setup.exe</code>. It is always the latest version. Its SHA-256 is <a href="#sha256">at the top of this page</a>.</li>
+          <li>Download the installer, <code>Praxis-Chat-Setup.exe</code>. It is always the latest version. Its SHA-256 is <a href="#sha256">next to the download button</a>.</li>
           <li>Run it. If Windows shows a SmartScreen warning, click <span class="chip">More info</span>, then <span class="chip">Run anyway</span>. The app installs and opens; there is nothing else to install.</li>
           <li>On the setup screen, connect a model provider with your own API key, or your Google Cloud account.</li>
         </ol>
+      </div>
+      <div class="install-panel">
         <div class="download">
           <a class="button" data-download href="https://github.com/shanmukhram/praxis-chat-releases/releases/latest/download/Praxis-Chat-Setup.exe">
             <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 3v10M5.5 8.5 10 13l4.5-4.5M4 16.5h12"/></svg>
@@ -339,16 +313,31 @@
             <p>Windows may show a SmartScreen warning because our code-signing certificate is still being issued.</p>
             <p>Click <span class="chip">More info</span> <span aria-hidden="true">→</span><span class="sr-only">then</span> <span class="chip">Run anyway</span>. <span data-signed-builds>Signed builds ship soon.</span></p>
           </div>
+
+          <div class="checksum">
+            <!-- RELEASE: update the version and the SHA-256 together at each release. -->
+            <p class="checksum-label">SHA-256 of Praxis-Chat-Setup.exe, version 0.2.2 beta</p>
+            <div class="code-row">
+              <code id="sha256" class="hash">a9c92e26d2c31db13d63b1a247eabc7618b86008bd14a6f7eef58cd5209560f6</code>
+              <button class="copy" type="button" data-copy="sha256" data-copied-message="SHA-256 copied" aria-label="Copy SHA-256" hidden>Copy</button>
+            </div>
+            <!-- END RELEASE -->
+            <p class="checksum-label">Check the file in PowerShell:</p>
+            <div class="code-row">
+              <code id="verify-cmd"><span class="nw">Get-FileHash</span> <span class="nw">.\Praxis-Chat-Setup.exe</span> <span class="nw">-Algorithm</span> SHA256</code>
+              <button class="copy" type="button" data-copy="verify-cmd" data-copied-message="Command copied" aria-label="Copy command" hidden>Copy</button>
+            </div>
+            <p class="checksum-note">The hash it prints should match the one above. <a href="https://github.com/shanmukhram/praxis-chat-releases/releases">All versions and checksums</a></p>
+            <p class="sr-only" role="status" data-copy-status></p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <section class="section" id="faq" aria-labelledby="faq-title">
-    <div class="wrap section-grid">
-      <div class="section-title">
-        <h2 id="faq-title">Questions</h2>
-      </div>
+    <div class="wrap faq-layout">
+      <h2 id="faq-title">Questions</h2>
       <div class="faq">
         <details>
           <summary>Is it free?</summary>
