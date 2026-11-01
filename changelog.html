@@ -58,6 +58,27 @@
       <ol class="timeline">
         <li class="release">
           <div class="release-head">
+            <h2 id="v0-2-2">0.2.2</h2>
+            <time datetime="2026-11-01">1 November 2026</time>
+          </div>
+          <p class="release-lede">Projects for every chat, and Local: the agent on your whole PC.</p>
+          <h3>Projects and Local</h3>
+          <ul>
+            <li>Every chat is in a project. Chats that had no project move into a new built-in project, Local. Nothing is deleted.</li>
+            <li>Local works on the whole PC: it starts in your home folder, reads and changes files on any drive and runs commands. It never reads <code>.ssh</code>, browser profiles or saved credentials. Commands that wipe a disk, partitions or backups are always refused, and deleting more than 20 files, or anything outside the current folder, asks you first, in every edit mode.</li>
+            <li>Open a folder as a project: drag it onto the window, or use "Open folder".</li>
+          </ul>
+          <h3>Agent</h3>
+          <ul>
+            <li>Web search on the chat's own provider: Claude chats search with Anthropic's web search and Gemini chats with Google Search. Your provider may charge for each search.</li>
+            <li>Missing developer tools (Node.js, Python, Git, the .NET SDK and others) are installed for you, with winget or from the tool's official site. Details in the <a href="privacy.html">privacy note</a>.</li>
+            <li>Command output streams in steadily, and a short line shows what the agent is doing.</li>
+            <li>Fixed "database is locked" errors when several agent chats run at once.</li>
+          </ul>
+        </li>
+
+        <li class="release">
+          <div class="release-head">
             <h2 id="v0-2-1">0.2.1</h2>
             <time datetime="2026-10-28">28 October 2026</time>
           </div>
