@@ -1,0 +1,340 @@
+/* The page-building intro (assets/intro.js). Loaded only while it plays and
+   removed with everything else when it ends. One blueprint blue; the agent
+   cursors share one lightness and chroma and differ only in hue. */
+
+:root {
+  --ib-blue: #2f6fed;
+  --ib-blue-a: 47 111 237;
+  --ib-on-blue: #ffffff;
+  --ib-lead: #0f766e;
+  --ib-l: 0.64;
+  --ib-ch: 0.17;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ib-blue: #6d9cff;
+    --ib-blue-a: 109 156 255;
+    --ib-on-blue: #0b1a33;
+    --ib-lead: #4dbdaf;
+    --ib-l: 0.76;
+    --ib-ch: 0.14;
+  }
+}
+
+/* Layers laid over the document, in page coordinates. */
+.ib-board,
+.ib-crowd {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  pointer-events: none;
+  overflow: clip;
+}
+.ib-board { z-index: 30; }
+.ib-crowd { z-index: 60; }
+
+
+.ib-frames,
+.ib-fx { position: absolute; inset: 0; }
+
+.ib-f {
+  position: absolute;
+  border: 1px solid rgb(var(--ib-blue-a) / 0.36);
+  background: rgb(var(--ib-blue-a) / 0.045);
+  border-radius: 2px;
+  transition: opacity 260ms ease;
+}
+.ib-f.is-shell {
+  border-style: dashed;
+  background: rgb(var(--ib-blue-a) / 0.02);
+}
+.ib-f.is-done { opacity: 0; }
+
+/* The selection on a part being built: frame, four handles, size. */
+.ib-sel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 1.5px solid var(--ib-blue);
+  border-radius: 2px;
+}
+.ib-sel i {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: var(--bg);
+  border: 1.5px solid var(--ib-blue);
+  border-radius: 1px;
+}
+.ib-sel i:nth-child(1) { left: -4.5px; top: -4.5px; }
+.ib-sel i:nth-child(2) { right: -4.5px; top: -4.5px; }
+.ib-sel i:nth-child(3) { left: -4.5px; bottom: -4.5px; }
+.ib-sel i:nth-child(4) { right: -4.5px; bottom: -4.5px; }
+.ib-dim {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 7px);
+  transform: translateX(-50%);
+  padding: 3px 5px;
+  border-radius: 3px;
+  background: var(--ib-blue);
+  color: var(--ib-on-blue);
+  font: 600 11px/1 var(--font);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.ib-dim:empty { display: none; }
+
+.ib-caret {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  background: var(--ib-blue);
+  border-radius: 1px;
+}
+.ib-caret.is-lead { width: 3px; background: var(--ib-lead); }
+
+.ib-gh,
+.ib-gv { position: absolute; left: 0; top: 0; }
+.ib-gh { width: 100%; height: 0; border-top: 1px solid rgb(var(--ib-blue-a) / 0.5); }
+.ib-gv { height: 100%; width: 0; border-left: 1px solid rgb(var(--ib-blue-a) / 0.5); }
+
+/* Rulers: the top one stays on screen, the left one runs the page. */
+.ib-rx,
+.ib-ry {
+  background-color: var(--surface);
+  color: rgb(var(--ib-blue-a) / 0.9);
+  font: 500 9px/1 var(--font);
+  font-variant-numeric: tabular-nums;
+}
+.ib-rx {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 18px;
+  z-index: 31;
+  pointer-events: none;
+  overflow: hidden;
+}
+.ib-ry {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  overflow: hidden;
+}
+.ib-rx span { position: absolute; top: 2px; padding-left: 3px; }
+.ib-ry span {
+  position: absolute;
+  left: 2px;
+  padding-top: 3px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  transform-origin: center;
+}
+
+@media (max-width: 560px) {
+  .ib-ry { display: none; }
+  .ib-rx { height: 14px; }
+  .ib-rx span { display: none; }
+}
+
+/* Cursors. */
+.ib-c {
+  position: absolute;
+  left: 0;
+  top: 0;
+  will-change: transform;
+  color: oklch(var(--ib-l) var(--ib-ch) var(--h));
+}
+.ib-c.is-lead { color: var(--ib-lead); }
+/* A dart with no tail: the tip is the point, the body leans back. */
+.ib-c svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+  overflow: visible;
+  transform-origin: 2px 2px;
+}
+.ib-c path {
+  fill: currentColor;
+  stroke: #ffffff;
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+  paint-order: stroke;
+}
+.ib-tag {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: var(--ib-lead);
+  color: var(--accent-ink);
+  font: 600 12px/1 var(--font);
+  white-space: nowrap;
+}
+
+/* Splash: the inverse of the page's theme. */
+.ib-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  color: var(--bg);
+}
+.ib-word {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.75rem, 1.1rem + 2.4vw, 3rem);
+  letter-spacing: -0.03em;
+}
+.ib-word::after {
+  content: "";
+  display: inline-block;
+  width: 0.07em;
+  height: 0.92em;
+  margin-left: 0.1em;
+  vertical-align: -0.12em;
+  background: currentColor;
+  animation: ib-blink 1s steps(1) infinite;
+}
+@keyframes ib-blink { 50% { opacity: 0; } }
+
+/* HUD: one floating pill, so it alone has a shadow. */
+.ib-hud-wrap {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+  pointer-events: none;
+}
+.ib-hud {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 100%;
+  padding: 5px 5px 5px 8px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--bg);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.24);
+  font: 500 13px/1 var(--font);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  pointer-events: auto;
+  opacity: 0;
+}
+.ib-hud b { font-weight: 600; }
+.ib-muted { opacity: 0.66; }
+
+.ib-stack {
+  display: flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 4px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: default;
+}
+.ib-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  background: oklch(var(--ib-l) var(--ib-ch) var(--h));
+  margin-left: -5px;
+}
+.ib-dot:first-child { margin-left: 0; background: var(--ib-lead); }
+.ib-more { margin-left: 5px; font-weight: 600; font-size: 12px; }
+
+.ib-roster {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 10px);
+  display: none;
+  min-width: 260px;
+  max-height: min(60vh, 520px);
+  overflow: auto;
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  border-radius: 14px;
+  background: var(--ink);
+  color: var(--bg);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.24);
+}
+.ib-roster li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 6px 8px;
+  font-size: 13px;
+}
+.ib-roster .ib-dot { margin: 0; border: 0; width: 10px; height: 10px; flex: none; }
+.ib-roster li:first-child .ib-dot { background: var(--ib-lead); }
+.ib-stack:hover + .ib-roster,
+.ib-stack:focus-visible + .ib-roster,
+.ib-stack[aria-expanded="true"] + .ib-roster,
+.ib-roster:hover { display: block; }
+
+.ib-bar {
+  width: 76px;
+  height: 3px;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--bg) 22%, transparent);
+  overflow: hidden;
+}
+.ib-bar i {
+  display: block;
+  height: 100%;
+  background: var(--ib-blue);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+}
+
+.ib-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 0 11px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: 600 13px/1 var(--font);
+  cursor: pointer;
+}
+.ib-btn:hover { background: color-mix(in srgb, var(--bg) 14%, transparent); }
+.ib-btn[aria-pressed="true"] { background: var(--ib-blue); color: var(--ib-on-blue); }
+.ib-btn svg { width: 15px; height: 15px; }
+.ib-icon { padding: 0; }
+.ib-hud :focus-visible { outline: 2px solid var(--ib-blue); outline-offset: 2px; }
+
+@media (pointer: coarse) {
+  .ib-btn, .ib-stack { min-height: 40px; }
+  .ib-btn { min-width: 40px; }
+}
+
+@media (max-width: 560px) {
+  .ib-hud { gap: 6px; }
+  .ib-bar, .ib-agents, .ib-snd { display: none; }
+  .ib-dot { width: 12px; height: 12px; margin-left: -5px; }
+}

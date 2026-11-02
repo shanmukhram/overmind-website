@@ -45,6 +45,10 @@ const SIGNED_BUILDS = "Signed builds ship soon.";
     });
   });
 
+  // While the intro builds the page (assets/intro.js), the load-time and
+  // scroll-in motion below stays off: the intro shows every part arriving.
+  const introOn = document.documentElement.classList.contains("intro-on");
+
   // Hero demo: the visitor approves or rejects the agent's example change.
   const demo = document.querySelector("[data-demo]");
   if (demo) {
@@ -58,7 +62,7 @@ const SIGNED_BUILDS = "Signed builds ship soon.";
     // A hidden tab or a screenshot tool draws none, so it gets the finished
     // chat, never an empty window.
     const calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!calm && demo.animate) {
+    if (!calm && demo.animate && !introOn) {
       requestAnimationFrame(function () {
         if (document.visibilityState !== "visible") return;
         demo.querySelectorAll(".msg").forEach(function (msg, i) {
@@ -121,7 +125,7 @@ const SIGNED_BUILDS = "Signed builds ship soon.";
   const EASE = "cubic-bezier(0.2, 0.7, 0.2, 1)";
 
   function onFirstSight(targets, play) {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (introOn || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (!("IntersectionObserver" in window) || !document.body.animate) return;
     requestAnimationFrame(function () {
       const io = new IntersectionObserver(function (entries) {

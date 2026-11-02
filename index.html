@@ -29,7 +29,33 @@
 <meta name="twitter:image:alt" content="Praxis Chat after the agent finished a task: tests passed and the changed files shown as cards">
 
 <link rel="stylesheet" href="assets/site.css">
-<script>document.documentElement.classList.add("js");</script>
+<script>
+document.documentElement.classList.add("js");
+// The intro (assets/intro.js): the page builds itself once per tab. Not with
+// reduced motion, in a background tab, under automation or with a #link.
+// ?intro=1 plays it again, ?intro=0 never. The cover is lifted after 3 s
+// whatever happens, so the page never stays hidden.
+(function () {
+  var d = document.documentElement, q = location.search;
+  try {
+    var force = /[?&]intro=1/.test(q);
+    if (!force && (/[?&]intro=0/.test(q) || location.hash || navigator.webdriver ||
+        document.visibilityState !== "visible" || sessionStorage.getItem("praxis-intro") ||
+        matchMedia("(prefers-reduced-motion: reduce)").matches)) return;
+    sessionStorage.setItem("praxis-intro", "1");
+  } catch (e) { return; }
+  d.classList.add("intro-on", "intro-cover");
+  var s = document.createElement("script");
+  s.type = "module";
+  s.src = "assets/intro.js";
+  document.head.appendChild(s);
+  setTimeout(function () { if (!window.__praxisIntro) d.classList.remove("intro-on", "intro-cover"); }, 3000);
+})();
+</script>
+<style>
+html.intro-cover::after { content: ""; position: fixed; inset: 0; z-index: 2147483000; background: #1c1917; }
+@media (prefers-color-scheme: dark) { html.intro-cover::after { background: #f5f5f4; } }
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
