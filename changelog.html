@@ -59,6 +59,66 @@
         <li class="release">
           <div class="release-head">
             <svg class="release-orbit" viewBox="-60 -60 120 120" aria-hidden="true" focusable="false"><circle class="release-ring" r="44" pathLength="176" transform="rotate(-90)"/><circle class="release-dot" r="10" transform="rotate(-37) translate(0 -44)"/></svg>
+            <h2 id="v0-3-0">0.3.0</h2>
+            <time datetime="2026-11-03">3 November 2026</time>
+          </div>
+          <p class="release-lede">The biggest update so far: work alongside the agent, safer permissions, six more languages, a lead that plans for cheaper models, and your own hooks, MCP servers, skills and agents.</p>
+          <h3>Working with the agent</h3>
+          <ul>
+            <li>One mode pill in the input bar: Manual, Accept edits, Auto and Plan, with Alt+M to step through them. Bypass asks you to confirm. Local chats can use every mode.</li>
+            <li>Auto mode: edits that can be undone run on their own; anything that cannot be undone (a force push, a publish, <code>git reset --hard</code>, deleting many files) asks you first; everything else gets a quick check by your background model, and if the check cannot run, Praxis asks you.</li>
+            <li>Comments on approvals, kept by the agent as corrections.</li>
+            <li>Type while the agent works: your next message waits in a queue, Esc stops the reply without losing what you typed, and the queue stays with its chat.</li>
+            <li>Background commands, and a Tasks list of running shells and workers, with each one's output kept in <code>.praxis/tasks</code>.</li>
+            <li><code>@</code> to point at a function or class, and <code>/</code> or Ctrl+K for commands such as <code>/context</code>, <code>/rewind</code>, <code>/btw</code>, <code>/init</code> and <code>/doctor</code>.</li>
+            <li>Side questions with <code>/btw</code> that stay out of the chat, and rewind to an earlier reply: the code, the chat, or both.</li>
+            <li>Branch a chat from any message, export it as JSONL, and merge a worktree chat back once its tests pass.</li>
+            <li>A transcript view with folded tool runs, what the model saw for each reply, and a Changes panel with undo for one hunk at a time.</li>
+            <li>Notes after a reply: a changed function signature and how many places call it, a passing test with no assert, a test run that ran no tests.</li>
+            <li>Windows notifications when a reply finishes or waits for you, with an off switch.</li>
+            <li>Live status in the sidebar (working, waiting for you, done), with worktree chats grouped.</li>
+            <li>One plan per project that all its chats read, editable in the project's Plan tab.</li>
+            <li>Output styles: Concise, Normal, Explain or Teaching, per chat or per project.</li>
+          </ul>
+          <h3>Bigger tasks with cheaper models</h3>
+          <ul>
+            <li>A lead with cheap workers: a frontier model plans, cheaper models build each piece, and code checks every piece before it is accepted. The lead's and the workers' tokens are shown separately. Off by default for now.</li>
+            <li>Workers on the Praxis engine: the agent hands a piece of work to a worker that runs as its own hidden chat, under the same approvals, at most four at a time.</li>
+            <li>Prompt caching: each step of a long turn reuses most of the previous prompt, so it costs less. The context meter shows the cached share.</li>
+            <li>An effort picker in the input bar sets how much the model thinks.</li>
+          </ul>
+          <h3>Code knowledge</h3>
+          <ul>
+            <li>The code map now covers C#, Java, Go, Rust, C and C++, and lists definitions for PHP, Kotlin, Ruby, Lua and Scala.</li>
+            <li><code>/init</code> writes a <code>PRAXIS.md</code> for your project from the code map.</li>
+            <li>Praxis reads a project's <code>PRAXIS.md</code>, <code>CLAUDE.md</code>, <code>AGENTS.md</code> and <code>.cursorrules</code>, and keeps a memory for each project.</li>
+            <li>Long chats are summarised in steps, and <code>/context</code> shows what fills the context window.</li>
+          </ul>
+          <h3>Safety and permissions</h3>
+          <ul>
+            <li>Folder trust: a project's own instructions, hooks, MCP servers, skills and agent files load only after you trust its folder.</li>
+            <li>Rules from settings files: managed, then yours, then the project's, then your local ones. A repository's own file can only make Praxis ask or refuse, never allow.</li>
+            <li>Model lists show only the providers you connected with a key, and the default model follows them. A chat whose provider is gone says so instead of sending your message to another provider.</li>
+          </ul>
+          <h3>Extend Praxis</h3>
+          <ul>
+            <li>Hooks: Claude Code-style hook tables on both engines; a PreToolUse hook can block a step. Edit your own hooks in Settings.</li>
+            <li>MCP servers over stdio from trusted projects; the first start of each server always asks you. Details in the <a href="privacy.html">privacy note</a>.</li>
+            <li>Skills and agents from <code>.praxis</code> and <code>.claude</code> folders.</li>
+            <li>The <code>praxis</code> command line works with the running app: <code>praxis -p "&lt;prompt&gt;"</code>, <code>praxis index</code>, <code>praxis verify</code>, and <code>praxis review</code> for your local changes, with a security mode. Routines run through Windows Task Scheduler.</li>
+            <li><code>/doctor</code> checks this PC (long paths, disk space, Git, PowerShell) and offers one-click fixes.</li>
+          </ul>
+          <h3>Look and feel</h3>
+          <ul>
+            <li>System, Light or Dark theme.</li>
+            <li>A list of keyboard shortcuts, and a status line under the input bar.</li>
+            <li>A calmer chat header, with the per-message controls in the input bar.</li>
+          </ul>
+        </li>
+
+        <li class="release">
+          <div class="release-head">
+            <svg class="release-orbit" viewBox="-60 -60 120 120" aria-hidden="true" focusable="false"><circle class="release-ring" r="44" pathLength="176" transform="rotate(-90)"/><circle class="release-dot" r="10" transform="rotate(-37) translate(0 -44)"/></svg>
             <h2 id="v0-2-2">0.2.2</h2>
             <time datetime="2026-11-01">1 November 2026</time>
           </div>
