@@ -59,6 +59,50 @@
         <li class="release">
           <div class="release-head">
             <svg class="release-orbit" viewBox="-60 -60 120 120" aria-hidden="true" focusable="false"><circle class="release-ring" r="44" pathLength="176" transform="rotate(-90)"/><circle class="release-dot" r="10" transform="rotate(-37) translate(0 -44)"/></svg>
+            <h2 id="v0-4-0">0.4.0</h2>
+            <time datetime="2026-11-05">5 November 2026</time>
+          </div>
+          <p class="release-lede">A calmer look, and the agent's commands rebuilt from the ground up: a real shell per chat, safer permissions checked part by part, a sandbox, Git Bash next to PowerShell, model routing across your providers, and web pages on any provider.</p>
+          <h3>A calmer look</h3>
+          <ul>
+            <li>The input bar is one rounded card: your text on its own row, then <span class="chip">+</span> (images, <code>@</code> mentions, <code>/</code> commands, <code>!</code> commands, earlier prompts, your editor), the mode pill, the model with its effort in one picker, and Send.</li>
+            <li>The sidebar has New session, Open folder and New project at the top, then each project as a folder with its chats under it.</li>
+            <li>The header holds only what you change often: Local, the engine and a light/dark button. Answer style, Lead and Export are in the <span class="chip">⋯</span> menu. It fits a narrow window.</li>
+          </ul>
+          <h3>Commands and the terminal</h3>
+          <ul>
+            <li>One shell per chat: the folder carries over between commands, and a trusted project's <code>.praxis/env.ps1</code> runs first.</li>
+            <li>PowerShell 7 first, UTF-8 throughout, PowerShell errors counted as failures, and common bash forms such as <code>2&gt;/dev/null</code> rewritten. Git Bash as a second shell on both engines when Git for Windows is installed.</li>
+            <li>A command that reaches its time limit moves to the background instead of being killed. Long output goes to a file; the agent gets a preview and the first error.</li>
+            <li>Esc and Stop end the whole command, child processes included, within a second.</li>
+            <li>Monitors: the agent can watch a running command's output or a WebSocket and get each new line as it arrives.</li>
+            <li>A command log: every command leaves a row with its shell, folder, output file, and whether it ran, asked or was refused, and why. Settings has a Commands section, and <code>/doctor</code> checks your shells.</li>
+            <li>A file the agent viewed with a command counts as read; an edit still applies when the file changed meanwhile, as long as its old text is there exactly once; files that are not UTF-8 are refused with the encoding named.</li>
+          </ul>
+          <h3>Safer commands</h3>
+          <ul>
+            <li>Each part of a command is judged on its own: read-only commands never ask, injection tricks always ask, and a short blocked list is refused. Heredocs are read in full, so nothing hides behind one.</li>
+            <li><span class="chip">Allow this pattern</span> on a waiting command saves a rule such as <code>npm run *</code> for that project, for PowerShell and Git Bash alike.</li>
+            <li>A secrets wall: keys and tokens are kept out of every agent command's environment and masked in its output; a command that reads, copies or names a secret file never runs.</li>
+            <li>A sandbox: agent commands run with a restricted Windows token and limits, never write inside <code>.git</code> or <code>.praxis</code>, and never touch SSH keys, browser profiles or credential stores. Network for agent commands can be limited to an allow list per project, and a chat's commands can be given a memory limit.</li>
+          </ul>
+          <h3>Model routing, off until you turn it on</h3>
+          <ul>
+            <li>Turn on Auto in new chats in Settings, Model routing: Praxis sorts each task into a class and picks a model from the providers you connected, a fast model for small checked edits and your frontier model for hard work. Each reply says which model it used and why, and you can pin a model per class.</li>
+            <li>It learns per project from how tasks went (tests, your thumbs, retries), works within token budgets, skips models that are down, and shows each routed reply's tokens and how much less it used than sending everything to your frontier model.</li>
+            <li>The lead run gives each piece its own model and steps up one tier after a failed attempt. A second opinion from another model is there if you want it; it is off by default.</li>
+            <li>For page and UI work, Praxis can draft several versions, check them by code and let you pick one.</li>
+          </ul>
+          <h3>Web and code knowledge</h3>
+          <ul>
+            <li>The agent reads public web pages on any provider, as Markdown with citations. Local and private addresses are refused. Details in the <a href="privacy.html">privacy note</a>.</li>
+            <li>Faster meaning search, better Python symbols from Pyright, and rename across files in the agent engine.</li>
+          </ul>
+        </li>
+
+        <li class="release">
+          <div class="release-head">
+            <svg class="release-orbit" viewBox="-60 -60 120 120" aria-hidden="true" focusable="false"><circle class="release-ring" r="44" pathLength="176" transform="rotate(-90)"/><circle class="release-dot" r="10" transform="rotate(-37) translate(0 -44)"/></svg>
             <h2 id="v0-3-0">0.3.0</h2>
             <time datetime="2026-11-03">3 November 2026</time>
           </div>
